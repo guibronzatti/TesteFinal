@@ -84,7 +84,10 @@ int* generate_array(int size, int organization) {
             case ALMOST_ORDERED:
             almost_ordered_array(array, size);
             break;
+            default:
+                break;
         }
     }
+    free(array);
     return array;
 }

@@ -3,11 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <getopt.h>
 
 static const char *optString = "a:n:s:P";
 
 int check_opt(int argc){
-    return argc > 6;
+    return argc = 6;
 }
 
 /**
@@ -16,7 +17,7 @@ int check_opt(int argc){
  * @param  char[] method 
  * @return int
  */
-int get_sort_method(char method[]) {
+int get_sort_method(const char method[]) {
     int selected_method;
     //printf("%d\n", selected_method);
     if(strcmp(method, "selection") == 0)
@@ -48,7 +49,7 @@ int get_sort_method(char method[]) {
  * @param  char[] method
  * @return int       
  */
-int get_array_size(char sizeOpt[]) {
+int get_array_size(const char sizeOpt[]) {
     int size = atoi(sizeOpt);
     if(size < 0) 
         size = UNDEFINED;
@@ -61,7 +62,7 @@ int get_array_size(char sizeOpt[]) {
  * @param  char[] type 
  * @return int     
  */
-int get_array_type(char type[]) {
+int get_array_type(const char type[]) {
     int selected_type;
     if(strcmp(type, "random") == 0)
         selected_type = RANDOM_ORDER;
@@ -88,8 +89,9 @@ int get_array_type(char type[]) {
  */
 void get_opt(int argc, char **argv, int *method, int *size, int *array_type, int *print_vector) {
     int opt = 0;
-    opt = getopt(argc, argv, optString);
+    opt = getopt(argc, argv, optString); //ta falhando aqui
     //a:n:s:p
+
     while(opt != -1) {
         switch(opt) {
             case 'a': // algorithm
@@ -97,16 +99,12 @@ void get_opt(int argc, char **argv, int *method, int *size, int *array_type, int
                 break;
 
             case 'n': // number of elements
-                *size   = get_array_size(optarg);
+                *size = get_array_size(optarg);
                 break;
 
             case 's': // (vector) situation
-                *array_type   = get_array_type(optarg);
+                *array_type = get_array_type(optarg);
                 break;
-
-            case 'P': // print
-                *print_vector = 1;
-            break;
 
             default:
                 /* You won't actually get here. */
@@ -123,8 +121,8 @@ void get_opt(int argc, char **argv, int *method, int *size, int *array_type, int
  * @param   int   method
  * @return  char*      
  */
-char* get_method_name(int method){
-    char *name;
+const char* get_method_name(int method){
+    const char *name; //TALVEZ DE MERDA
     switch(method){
         case SELECTION:
             name = "Selection";
@@ -166,8 +164,8 @@ char* get_method_name(int method){
  * @param   int   type
  * @return  char*  
  */
-char* get_array_type_name(int type){
-    char *name;
+const char* get_array_type_name(int type){
+    const char *name; //Talvez de merda
     switch(type){
         case RANDOM_ORDER:
             name = "Random";

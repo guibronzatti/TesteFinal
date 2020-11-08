@@ -20,6 +20,7 @@
 //#include"cuda_sort.h"
 #include<string.h>
 #include<stdlib.h>
+#include<stdio.h>
 
 clock_t start, end;
 double elapsed_time;
@@ -240,6 +241,9 @@ int* sort_array(int *array, int size, int method){
             merge_sort(array, size);
             end = clock();
         break;
+
+        default:
+            break;
 /*
         case GPUQUICK:
             start = clock();
@@ -257,14 +261,14 @@ int* sort_array(int *array, int size, int method){
     return array;
 }
 
-double get_elapsed_time(){
+double get_elapsed_time(void){
     return elapsed_time;
 }
 
-int get_swaps(){
+int get_swaps(void){
     return numberOfSwaps;
 }
 
-int get_comparisons(){
+int get_comparisons(void){
     return numberOfComparisons;
 }

@@ -43,57 +43,40 @@
 OSUPPER = $(shell uname -s 2>/dev/null | tr "[:lower:]" "[:upper:]")
 OSLOWER = $(shell uname -s 2>/dev/null | tr "[:upper:]" "[:lower:]")
 
-# internal flags
-CCFLAGS     :=
-LDFLAGS     :=
+GCCFLAGS = gcc -g -Wall -Wfatal-errors
 
-# Extra user flags
-EXTRA_LDFLAGS     ?=
-EXTRA_CCFLAGS     ?=
-
-
-# Debug build flags
-ifeq ($(dbg),1)
-      NVCCFLAGS += -g -G
-      TARGET := debug
-else
-      TARGET := release
-endif
-
-ALL_CCFLAGS :=
-ALL_CCFLAGS += $(addprefix -Xcompiler ,$(CCFLAGS))
-ALL_CCFLAGS += $(addprefix -Xcompiler ,$(EXTRA_CCFLAGS))
-
-ALL_LDFLAGS :=
-ALL_LDFLAGS += $(ALL_CCFLAGS)
-ALL_LDFLAGS += $(addprefix -Xlinker ,$(LDFLAGS))
-ALL_LDFLAGS += $(addprefix -Xlinker ,$(EXTRA_LDFLAGS))
-
+CFLAGS = -a selection -n 5 -s random -P
 
 ################################################################################
 # This part modified by Eugenio Pacceli Reis da Fonseca
 # DCC/UFMG
 # Target rules
-all: app
+all: test
 
-array.o:array.c
-	gcc -o $@ -c $<
+test: ./test/TestFoo.c 
+	gcc -std=c99 -Wall -Wextra -Wpointer-arith -Wcast-align -Wwrite-strings -Wswitch-default -Wunreachable-code -Winit-self -Wmissing-field-initializers -Wno-unknown-pragmas -Wstrict-prototypes -Wundef -Wold-style-definition -Isrc -I./src ./src/unity.c ./array.c ./sort.c ./get_opt.c ./mainCheck.c test/TestFoo.c  test/test_runners/TestFoo_Runner.c -o test_foo.out
+	./test_foo.out
+	
+cov: ./mainCheck_MAIN.c
+	$(GCCFLAGS)  -fprofile-arcs -ftest-coverage ./array.c ./sort.c ./get_opt.c -o $@ ./mainCheck_MAIN.c
+	./cov $(CFLAGS)
+	gcov -b mainCheck_MAIN.c
 
-sort.o:sort.c
-	gcc -o $@ -c $<
+check: ./mainCheck_MAIN.c
+	cppcheck ./mainCheck_MAIN.c
 
-get_opt.o:get_opt.c
-	gcc -o $@ -c $<
+valgrind: ./mainCheck_MAIN.c
+	$(GCCFLAGS) ./array.c ./sort.c ./get_opt.c ./mainCheck_MAIN.c -o app
+	valgrind --leak-check=full --show-leak-kinds=all ./app $(CFLAGS)
 
-main.o:main.c
-	gcc -o $@ -c $<
-
-app: array.o sort.o get_opt.o main.o
-	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES)
-
-run: build
-	./app
+address: ./mainCheck_MAIN.c
+	$(GCCFLAGS) -fsanitize=address ./array.c ./sort.c ./get_opt.c ./mainCheck_MAIN.c -o ./testeAdr
+	./testeAdr $(CFLAGS)
 
 clean:
 	rm -f *.o
-	rm -f app
+	rm -f *.out
+	rm -fr test *.o cov* *.dSYM *.gcda *.gcno *.gcov
+	rm -fr app
+	rm -fr testeAdr
+

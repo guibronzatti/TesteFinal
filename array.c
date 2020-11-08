@@ -88,6 +88,6 @@ int* generate_array(int size, int organization) {
                 break;
         }
     }
-    free(array);
+    //free(array);
     return array;
 }

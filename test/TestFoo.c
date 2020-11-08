@@ -259,14 +259,14 @@ void test_quickRandom(void)
 void test_quickDescending(void)
 {
   int tam = 4;
-  int array[10] = {8,9,8,7,6,5,4,3,2,1};
+  int array[9] = {9,8,7,6,5,4,3,2,1};
   int num = 0;
   char **ptr = (char **)malloc(tam * sizeof(char*));
 
   ptr[0] = (char *)malloc(6 * sizeof(char));
   sprintf(ptr[0], "quick");
-  ptr[1] = (char *)malloc(3 * sizeof(char));
-  sprintf(ptr[1], "10");
+  ptr[1] = (char *)malloc(2 * sizeof(char));
+  sprintf(ptr[1], "9");
   ptr[2] = (char *)malloc(11 * sizeof(char));
   sprintf(ptr[2], "descending");
   ptr[3] = (char *)malloc(3 * sizeof(char));
@@ -297,7 +297,7 @@ void test_quickAlmost(void)
   ptr[3] = (char *)malloc(3 * sizeof(char));
   sprintf(ptr[3], "-P");
     
-  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
+  TEST_ASSERT_EQUAL_INT(3,maincheck(tam,ptr,array,num));
 
   free(ptr[0]);
   free(ptr[1]);

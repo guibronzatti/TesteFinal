@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
             printf("%d ", vet[i]);
         }
     }
-    free(vet);
+    //free(vet);
     free(vet_aux);
     printf("\n\n");
     //printf("%f\n",tempoPercorrido);

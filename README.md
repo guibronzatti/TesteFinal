@@ -3,6 +3,9 @@ sort
 
 Obs.: **Modified to remove CUDA code.**
 
+Test results:
+
+[<img alt="Build Status" src="https://travis-ci.org/guibronzatti/TesteFinal.svg?branch=main" height="40">][travis-url]
 
 Repository of sorting algorithms in C.
 
@@ -55,3 +58,16 @@ To run the program, type:
 |               | descending    | 
 |               | almost        | 
 | -P            |
+
+
+License
+-------
+MIT License. See [LICENSE](LICENSE) for details.
+
+[main-url]: https://github.com/guibronzatti/TesteFinal
+[readme-url]: https://github.com/guibronzatti/TesteFinal/blob/main/README.md
+[license-url]: https://github.com/guibronzatti/TesteFinal/blob/main/LICENSE
+[license-img]: https://img.shields.io/github/license/rsp/travis-hello-modern-cpp.svg
+[travis-url]: https://travis-ci.org/guibronzatti/TesteFinal
+[travis-img]: https://travis-ci.org/guibronzatti/TesteFinal.svg?branch=master
+[github-follow-url]: https://github.com/guibronzatti

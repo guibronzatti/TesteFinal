@@ -284,8 +284,8 @@ void test_quickDescending(void)
 void test_quickAlmost(void)
 {
   int tam = 4;
-  int array[5] = {0,1,2,4,3};
-  int num = 4;
+  int array[5] = {1,2,4,3,5};
+  int num = 3;
   char **ptr = (char **)malloc(tam * sizeof(char*));
 
   ptr[0] = (char *)malloc(6 * sizeof(char));

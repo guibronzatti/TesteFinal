@@ -17,3 +17,8 @@ install:
 
 script:
   - make
+  - make cov "CFLAGS = -a -selection -n 10 -s random -P"
+  - make check
+  - make valgrind "CFLAGS = -a quick -n 5 -s descending -P"
+  - make address "CFLAGS = -a heap -n 5 -s almost -P"
+  

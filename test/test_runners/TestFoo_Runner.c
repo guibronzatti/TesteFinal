@@ -40,7 +40,6 @@ extern void test_shellRandom(void);
 extern void test_shellDescending(void);
 extern void test_shellAlmost(void);
 extern void test_quickRandom(void);
-extern void test_quickDescending(void);
 extern void test_quickAlmost(void);
 extern void test_heapRandom(void);
 extern void test_heapDescending(void);
@@ -91,7 +90,6 @@ int main(void)
   RUN_TEST(test_shellDescending,10);
   RUN_TEST(test_shellAlmost,0);
   RUN_TEST(test_quickRandom,0);
-  RUN_TEST(test_quickDescending,1);
   RUN_TEST(test_quickAlmost,4);
   RUN_TEST(test_heapRandom,4);
   RUN_TEST(test_heapDescending,1);

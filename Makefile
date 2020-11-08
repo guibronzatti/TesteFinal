@@ -53,7 +53,7 @@ CFLAGS = -a selection -n 5 -s random -P
 # Target rules
 all: test
 
-test: ./test/TestFoo.c 
+test: ./test/TestFoo.c ./mainCheck.c
 	gcc -std=c99 -Wall -Wextra -Wpointer-arith -Wcast-align -Wwrite-strings -Wswitch-default -Wunreachable-code -Winit-self -Wmissing-field-initializers -Wno-unknown-pragmas -Wstrict-prototypes -Wundef -Wold-style-definition -Isrc -I./src ./src/unity.c ./array.c ./sort.c ./get_opt.c ./mainCheck.c test/TestFoo.c  test/test_runners/TestFoo_Runner.c -o test_foo.out
 	./test_foo.out
 	

@@ -105,6 +105,9 @@ void get_opt(int argc, char **argv, int *method, int *size, int *array_type, int
             case 's': // (vector) situation
                 *array_type = get_array_type(optarg);
                 break;
+            case 'P':
+                *print_vector = 1;
+                break;
 
             default:
                 /* You won't actually get here. */

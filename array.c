@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+#include <malloc.h>
 /**
  * Function that fills an array with random integers
  * @param int* array Reference to the array that will be filled
@@ -68,7 +69,7 @@ void almost_ordered_array(int *array, int size) {
  */
 int* generate_array(int size, int organization) {
     int* array;
-    array = (int*)malloc(size*sizeof(int));
+    array = (int*)malloc(sizeof(int)*size);
 
     if(array){
         switch(organization) {
@@ -90,4 +91,5 @@ int* generate_array(int size, int organization) {
     }
     //free(array);
     return array;
+    
 }

@@ -4,6 +4,7 @@
 #include "get_opt.h"
 #include "array.h"
 #include "sort.h"
+#include <malloc.h>
 //#include "mainCheck_MAIN.h"
 
 int main(int argc, char **argv) {
@@ -18,17 +19,6 @@ int main(int argc, char **argv) {
         return 1;
     }
     get_opt(argc, argv, &method, &size, &array_type, &print_vector);
-    
-
-    /*method = get_sort_method(argv[0]);
-    size = get_array_size(argv[1]);
-    array_type = get_array_type(argv[2]);
-
-    if(argc == 4){
-        if(strcmp(argv[3], "-P") == 0){
-            print_vector = 1;
-        }
-    }*/
 
     // Create the vector with the specified size and situation
     int *vet = generate_array(size, array_type);
@@ -68,10 +58,10 @@ int main(int argc, char **argv) {
             printf("%d ", vet[i]);
         }
     }
-    //free(vet);
+    free(vet);
+    //free(array);
     free(vet_aux);
     printf("\n\n");
-    //printf("%f\n",tempoPercorrido);
     return 0;
 }
 

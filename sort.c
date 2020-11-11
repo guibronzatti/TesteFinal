@@ -226,7 +226,7 @@ int* sort_array(int *array, int size, int method){
 
         case QUICK:
             start = clock();
-            quick_sort(array, 0, size);
+            quick_sort(array, 0, size - 1); //bug com apenas size
             end = clock();
         break;
 

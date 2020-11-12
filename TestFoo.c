@@ -297,7 +297,7 @@ void test_quickAlmost(void)
   ptr[3] = (char *)malloc(3 * sizeof(char));
   sprintf(ptr[3], "-P");
     
-  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
+  TEST_ASSERT_EQUAL_INT(3,maincheck(tam,ptr,array,num));
 
   free(ptr[0]);
   free(ptr[1]);

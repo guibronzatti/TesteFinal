@@ -280,7 +280,7 @@ void test_quickDescending(void)
   free(ptr[3]);
   free(ptr);
 }
-
+/*
 void test_quickAlmost(void)
 {
   int tam = 4;
@@ -304,7 +304,7 @@ void test_quickAlmost(void)
   free(ptr[2]);
   free(ptr[3]);
   free(ptr);
-}
+}*/
 
 void test_heapRandom(void)
 {

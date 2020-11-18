@@ -33,21 +33,27 @@
 extern void test_selectionRandom(void);
 extern void test_selectionDescending(void);
 extern void test_selectionAlmost(void);
+extern void test_selectionAscending(void);
 extern void test_insertionRandom(void);
 extern void test_insertionDescending(void);
 extern void test_insertionAlmost(void);
+extern void test_insertionAscending(void);
 extern void test_shellRandom(void);
 extern void test_shellDescending(void);
 extern void test_shellAlmost(void);
+extern void test_shellAscending(void);
 extern void test_quickRandom(void);
 extern void test_quickDescending(void);
 extern void test_quickAlmost(void);
+extern void test_quickAscending(void);
 extern void test_heapRandom(void);
 extern void test_heapDescending(void);
 extern void test_heapAlmost(void);
+extern void test_heapAscending(void);
 extern void test_mergeRandom(void);
 extern void test_mergeDescending(void);
 extern void test_mergeAlmost(void);
+extern void test_mergeAscending(void);
 
 /*=======Suite Setup=====*/
 static void suite_setup(void)
@@ -84,21 +90,27 @@ int main(void)
   RUN_TEST(test_selectionRandom, 0);
   RUN_TEST(test_selectionDescending,1);
   RUN_TEST(test_selectionAlmost,4);
+  RUN_TEST(test_selectionAscending,5);
   RUN_TEST(test_insertionRandom,2);
   RUN_TEST(test_insertionDescending,1);
   RUN_TEST(test_insertionAlmost,9);
+  RUN_TEST(test_insertionAscending,5);
   RUN_TEST(test_shellRandom,1);
   RUN_TEST(test_shellDescending,10);
   RUN_TEST(test_shellAlmost,0);
+  RUN_TEST(test_shellAscending,5);
   RUN_TEST(test_quickRandom,0);
   RUN_TEST(test_quickDescending,1);
   RUN_TEST(test_quickAlmost,4);
+  RUN_TEST(test_quickAscending,5);
   RUN_TEST(test_heapRandom,4);
   RUN_TEST(test_heapDescending,1);
   RUN_TEST(test_heapAlmost,7);
+  RUN_TEST(test_heapAscending,5);
   RUN_TEST(test_mergeRandom,8);
   RUN_TEST(test_mergeDescending,8);
   RUN_TEST(test_mergeAlmost,7);
+  RUN_TEST(test_mergeAscending,5);
   
   return suite_teardown(UnityEnd());
 }

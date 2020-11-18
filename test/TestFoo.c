@@ -81,6 +81,30 @@ void test_selectionAlmost(void)
   free(ptr);
 }
 
+void test_selectionAscending(void){
+  int tam = 4;
+  int array[5] = {0,1,2,3,4};
+  int num = 4;
+  char **ptr = (char **)malloc(tam * sizeof(char*));
+
+  ptr[0] = (char *)malloc(10 * sizeof(char));
+  sprintf(ptr[0], "selection");
+  ptr[1] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[1], "5");
+  ptr[2] = (char *)malloc(11 * sizeof(char));
+  sprintf(ptr[2], "ascending");
+  ptr[3] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[3], "-P");
+    
+  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
+
+  free(ptr[0]);
+  free(ptr[1]);
+  free(ptr[2]);
+  free(ptr[3]);
+  free(ptr);
+}
+
 void test_insertionRandom(void)
 {
   int tam = 4;
@@ -148,6 +172,30 @@ void test_insertionAlmost(void)
   sprintf(ptr[3], "-P");
     
   TEST_ASSERT_EQUAL_INT(9,maincheck(tam,ptr,array,num));
+
+  free(ptr[0]);
+  free(ptr[1]);
+  free(ptr[2]);
+  free(ptr[3]);
+  free(ptr);
+}
+
+void test_insertionAscending(void){
+  int tam = 4;
+  int array[5] =  {0,1,2,3,4};
+  int num = 4;
+  char **ptr = (char **)malloc(tam * sizeof(char*));
+
+  ptr[0] = (char *)malloc(11 * sizeof(char));
+  sprintf(ptr[0], "insertion");
+  ptr[1] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[1], "5");
+  ptr[2] = (char *)malloc(11 * sizeof(char));
+  sprintf(ptr[2], "ascending");
+  ptr[3] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[3], "-P");
+    
+  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
 
   free(ptr[0]);
   free(ptr[1]);
@@ -231,6 +279,30 @@ void test_shellAlmost(void)
   free(ptr);
 }
 
+void test_shellAscending(void){
+  int tam = 4;
+  int array[5] =  {0,1,2,3,4};
+  int num = 4;
+  char **ptr = (char **)malloc(tam * sizeof(char*));
+
+  ptr[0] = (char *)malloc(6 * sizeof(char));
+  sprintf(ptr[0], "shell");
+  ptr[1] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[1], "5");
+  ptr[2] = (char *)malloc(11 * sizeof(char));
+  sprintf(ptr[2], "ascending");
+  ptr[3] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[3], "-P");
+    
+  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
+
+  free(ptr[0]);
+  free(ptr[1]);
+  free(ptr[2]);
+  free(ptr[3]);
+  free(ptr);
+}
+
 void test_quickRandom(void)
 {
   int tam = 4;
@@ -294,6 +366,30 @@ void test_quickAlmost(void)
   sprintf(ptr[1], "5");
   ptr[2] = (char *)malloc(7 * sizeof(char));
   sprintf(ptr[2], "almost");
+  ptr[3] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[3], "-P");
+    
+  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
+
+  free(ptr[0]);
+  free(ptr[1]);
+  free(ptr[2]);
+  free(ptr[3]);
+  free(ptr);
+}
+
+void test_quickAscending(void){
+  int tam = 4;
+  int array[5] =  {0,1,2,3,4};
+  int num = 4;
+  char **ptr = (char **)malloc(tam * sizeof(char*));
+
+  ptr[0] = (char *)malloc(6 * sizeof(char));
+  sprintf(ptr[0], "quick");
+  ptr[1] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[1], "5");
+  ptr[2] = (char *)malloc(11 * sizeof(char));
+  sprintf(ptr[2], "ascending");
   ptr[3] = (char *)malloc(3 * sizeof(char));
   sprintf(ptr[3], "-P");
     
@@ -381,6 +477,30 @@ void test_heapAlmost(void)
   free(ptr);
 }
 
+void test_heapAscending(void){
+  int tam = 4;
+  int array[5] =  {0,1,2,4,3};
+  int num = 4;
+  char **ptr = (char **)malloc(tam * sizeof(char*));
+
+  ptr[0] = (char *)malloc(5 * sizeof(char));
+  sprintf(ptr[0], "heap");
+  ptr[1] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[1], "5");
+  ptr[2] = (char *)malloc(11 * sizeof(char));
+  sprintf(ptr[2], "ascending");
+  ptr[3] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[3], "-P");
+    
+  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
+
+  free(ptr[0]);
+  free(ptr[1]);
+  free(ptr[2]);
+  free(ptr[3]);
+  free(ptr);
+}
+
 void test_mergeRandom(void)
 {
   int tam = 4;
@@ -456,5 +576,26 @@ void test_mergeAlmost(void)
   free(ptr);
 }
 
+void test_mergeAscending(void){
+  int tam = 4;
+  int array[5] = {0,1,2,3,4};
+  int num = 4;
+  char **ptr = (char **)malloc(tam * sizeof(char*));
 
+  ptr[0] = (char *)malloc(6 * sizeof(char));
+  sprintf(ptr[0], "merge");
+  ptr[1] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[1], "5");
+  ptr[2] = (char *)malloc(11 * sizeof(char));
+  sprintf(ptr[2], "ascending");
+  ptr[3] = (char *)malloc(3 * sizeof(char));
+  sprintf(ptr[3], "-P");
+    
+  TEST_ASSERT_EQUAL_INT(4,maincheck(tam,ptr,array,num));
 
+  free(ptr[0]);
+  free(ptr[1]);
+  free(ptr[2]);
+  free(ptr[3]);
+  free(ptr);
+}

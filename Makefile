@@ -76,7 +76,7 @@ address: ./mainCheck_MAIN.c
 clean:
 	rm -f *.o
 	rm -f *.out
-	rm -fr test *.o cov* *.dSYM *.gcda *.gcno *.gcov
+	rm -fr *.o cov* *.dSYM *.gcda *.gcno *.gcov
 	rm -fr app
 	rm -fr testeAdr
 
